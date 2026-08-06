@@ -39,6 +39,7 @@
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#stack" class="nav-link">Stack</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#sandbox" class="nav-link">Sandbox</a></li>
         <li><a href="#timeline" class="nav-link">Experience & Education</a></li>
         <li><a href="#certifications" class="nav-link">Certifications</a></li>
         <li><a href="#contact" class="nav-btn-link"><button class="btn btn-primary btn-sm">Connect</button></a></li>
@@ -292,6 +293,9 @@ print(rishi.get_profile())
             <a href="https://github.com/Rishikumar67/diabetes-prediction-model" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
               <i data-lucide="github"></i> Source Code
             </a>
+            <button class="btn btn-primary btn-sm open-modal-btn" data-project="diabetes">
+              <i data-lucide="line-chart"></i> Details
+            </button>
           </div>
         </div>
 
@@ -326,6 +330,113 @@ print(rishi.get_profile())
             <a href="https://github.com/Rishikumar67/smart-disease-predictor" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
               <i data-lucide="github"></i> Source Code
             </a>
+            <button class="btn btn-primary btn-sm open-modal-btn" data-project="disease">
+              <i data-lucide="line-chart"></i> Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive ML Sandbox Section -->
+  <section class="sandbox-section section-padding" id="sandbox">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Simulation</span>
+        <h2 class="section-title">Live ML Predictor Sandbox</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="sandbox-grid">
+        <!-- Sandbox Inputs -->
+        <div class="sandbox-card sandbox-inputs-card">
+          <h3>Patient Health Profile Input</h3>
+          <p class="sandbox-subtitle">Adjust patient parameters to run the simulated classifier model in real-time.</p>
+          
+          <form id="sandbox-form" class="sandbox-form">
+            <div class="sandbox-input-group">
+              <div class="sandbox-label-row">
+                <label for="glucose">Glucose Level (mg/dL)</label>
+                <span class="sandbox-val" id="val-glucose">120</span>
+              </div>
+              <input type="range" id="glucose" min="50" max="220" value="120" class="slider">
+              <div class="slider-bounds"><span>50 (Normal)</span><span>220 (High)</span></div>
+            </div>
+
+            <div class="sandbox-input-group">
+              <div class="sandbox-label-row">
+                <label for="bmi">Body Mass Index (BMI)</label>
+                <span class="sandbox-val" id="val-bmi">24.5</span>
+              </div>
+              <input type="range" id="bmi" min="15.0" max="45.0" step="0.1" value="24.5" class="slider">
+              <div class="slider-bounds"><span>15 (Underweight)</span><span>45 (Obese)</span></div>
+            </div>
+
+            <div class="sandbox-input-group">
+              <div class="sandbox-label-row">
+                <label for="age">Age (Years)</label>
+                <span class="sandbox-val" id="val-age">35</span>
+              </div>
+              <input type="range" id="age" min="15" max="85" value="35" class="slider">
+              <div class="slider-bounds"><span>15</span><span>85</span></div>
+            </div>
+
+            <div class="sandbox-input-group">
+              <div class="sandbox-label-row">
+                <label for="bp">Diastolic Blood Pressure (mmHg)</label>
+                <span class="sandbox-val" id="val-bp">75</span>
+              </div>
+              <input type="range" id="bp" min="40" max="130" value="75" class="slider">
+              <div class="slider-bounds"><span>40</span><span>130 (Severe)</span></div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-full" id="run-sandbox-btn">
+              <i data-lucide="play"></i> Run Classifier Prediction
+            </button>
+          </form>
+        </div>
+
+        <!-- Sandbox Results -->
+        <div class="sandbox-card sandbox-results-card">
+          <h3>Simulated Logistic Regression Output</h3>
+          <p class="sandbox-subtitle">Probability scoring based on model weights trained from Pima Indian dataset.</p>
+          
+          <div class="sandbox-display-area">
+            <!-- Gauge animation wrapper -->
+            <div class="gauge-container">
+              <div class="gauge-svg-wrapper">
+                <svg viewBox="0 0 100 50" class="gauge-svg">
+                  <!-- Grey track -->
+                  <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#1d293d" stroke-width="8" stroke-linecap="round" />
+                  <!-- Colorful indicator track -->
+                  <path id="gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="url(#gauge-gradient)" stroke-width="8" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+                  
+                  <defs>
+                    <linearGradient id="gauge-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#10b981" />
+                      <stop offset="50%" stop-color="#f59e0b" />
+                      <stop offset="100%" stop-color="#ef4444" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="gauge-percentage" id="gauge-pct">0%</div>
+              </div>
+            </div>
+
+            <div class="prediction-alert" id="prediction-alert">
+              <div class="alert-icon"><i data-lucide="check-circle-2"></i></div>
+              <div class="alert-text">
+                <h4 id="alert-title">Initialize Prediction</h4>
+                <p id="alert-desc">Adjust sliders and click "Run Classifier Prediction" to compute model risk.</p>
+              </div>
+            </div>
+
+            <div class="model-formula-wrapper">
+              <span class="formula-title">Decision Boundary Formula:</span>
+              <code>z = -5.2 + 0.027*(Glucose) + 0.065*(BMI) + 0.015*(Age) + 0.003*(BP)</code>
+              <code class="probability-code">Probability (P) = 1 / (1 + e^-z)</code>
+            </div>
           </div>
         </div>
       </div>
@@ -534,6 +645,129 @@ print(rishi.get_profile())
       <p class="footer-motto">"Turning data into decisions, one model at a time."</p>
     </div>
   </footer>
+
+  <!-- Modal Backdrops -->
+  
+  <!-- Diabetes Model Modal -->
+  <div class="modal-backdrop" id="modal-diabetes">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i data-lucide="shield-alert"></i> Diabetes Prediction Model Details</h3>
+        <button class="modal-close" data-close="diabetes"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <p>This project predicts whether a patient is at risk of diabetes using clinical parameters. It was built using Scikit-Learn during the Ardent Computech internship.</p>
+        
+        <h4>Model Evaluation Metrics</h4>
+        <table class="modal-metrics-table">
+          <thead>
+            <tr>
+              <th>Algorithm</th>
+              <th>Accuracy</th>
+              <th>Precision</th>
+              <th>Recall</th>
+              <th>F1-Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td>Random Forest Classifier</td>
+              <td>84.2%</td>
+              <td>81.5%</td>
+              <td>79.8%</td>
+              <td>80.6%</td>
+            </tr>
+            <tr>
+              <td>Decision Tree Classifier</td>
+              <td>78.6%</td>
+              <td>76.0%</td>
+              <td>74.2%</td>
+              <td>75.1%</td>
+            </tr>
+            <tr>
+              <td>Logistic Regression</td>
+              <td>77.3%</td>
+              <td>75.1%</td>
+              <td>72.5%</td>
+              <td>73.8%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Feature Importance Ranking</h4>
+        <div class="chart-container">
+          <div class="bar-chart-row">
+            <span class="bar-label">Glucose</span>
+            <div class="bar-wrapper"><div class="bar-fill" style="width: 38%;"></div></div>
+            <span class="bar-val">0.380</span>
+          </div>
+          <div class="bar-chart-row">
+            <span class="bar-label">BMI</span>
+            <div class="bar-wrapper"><div class="bar-fill" style="width: 25%;"></div></div>
+            <span class="bar-val">0.254</span>
+          </div>
+          <div class="bar-chart-row">
+            <span class="bar-label">Age</span>
+            <div class="bar-wrapper"><div class="bar-fill" style="width: 16%;"></div></div>
+            <span class="bar-val">0.158</span>
+          </div>
+          <div class="bar-chart-row">
+            <span class="bar-label">BP</span>
+            <div class="bar-wrapper"><div class="bar-fill" style="width: 10%;"></div></div>
+            <span class="bar-val">0.098</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Smart Disease Modal -->
+  <div class="modal-backdrop" id="modal-disease">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i data-lucide="brain-circuit"></i> Smart Disease Predictor Details</h3>
+        <button class="modal-close" data-close="disease"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <p>A multi-layer neural network trained on multiple patient records to identify potential disease tags. It uses feature extraction layers and dense classifications.</p>
+        
+        <h4>Deep Learning Architecture</h4>
+        <div class="architecture-diagram">
+          <div class="layer-node">Input Layer (8 Parameters)</div>
+          <div class="layer-arrow">↓</div>
+          <div class="layer-node">Dense Hidden Layer 1 (64 Neurons, ReLU, Dropout 0.2)</div>
+          <div class="layer-arrow">↓</div>
+          <div class="layer-node">Dense Hidden Layer 2 (32 Neurons, ReLU)</div>
+          <div class="layer-arrow">↓</div>
+          <div class="layer-node">Output Layer (Sigmoid Classifier)</div>
+        </div>
+
+        <h4>Training Progression (Accuracy)</h4>
+        <div class="chart-container">
+          <div class="bar-chart-row">
+            <span class="bar-label">Epoch 1</span>
+            <div class="bar-wrapper"><div class="bar-fill" style="width: 61%;"></div></div>
+            <span class="bar-val">0.612</span>
+          </div>
+          <div class="bar-chart-row">
+            <span class="bar-label">Epoch 10</span>
+            <div class="bar-wrapper"><div class="bar-fill" style="width: 79%;"></div></div>
+            <span class="bar-val">0.788</span>
+          </div>
+          <div class="bar-chart-row">
+            <span class="bar-label">Epoch 25</span>
+            <div class="bar-wrapper"><div class="bar-fill" style="width: 86%;"></div></div>
+            <span class="bar-val">0.856</span>
+          </div>
+          <div class="bar-chart-row">
+            <span class="bar-label">Epoch 50</span>
+            <div class="bar-wrapper"><div class="bar-fill" style="width: 89%;"></div></div>
+            <span class="bar-val">0.894</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- JavaScript Code -->
   <script src="script.js"></script>

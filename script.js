@@ -242,7 +242,7 @@ filterButtons.forEach(button => {
    ========================================================================== */
 // Add reveal class to main sections dynamically
 const sectionsToReveal = document.querySelectorAll(
-  '.about-section, .stack-section, .projects-section, .timeline-section, .certifications-section, .contact-section'
+  '.about-section, .stack-section, .projects-section, .sandbox-section, .timeline-section, .certifications-section, .contact-section'
 );
 
 sectionsToReveal.forEach(section => {
@@ -311,3 +311,143 @@ contactForm.addEventListener('submit', (e) => {
 
   }, 1500);
 });
+
+/* ==========================================================================
+   ML SANDBOX CLASSIFIER SIMULATION
+   ========================================================================== */
+const glucoseInput = document.getElementById('glucose');
+const bmiInput = document.getElementById('bmi');
+const ageInput = document.getElementById('age');
+const bpInput = document.getElementById('bp');
+
+const valGlucose = document.getElementById('val-glucose');
+const valBmi = document.getElementById('val-bmi');
+const valAge = document.getElementById('val-age');
+const valBp = document.getElementById('val-bp');
+
+const runSandboxBtn = document.getElementById('run-sandbox-btn');
+const gaugeFill = document.getElementById('gauge-fill');
+const gaugePct = document.getElementById('gauge-pct');
+const predictionAlert = document.getElementById('prediction-alert');
+const alertTitle = document.getElementById('alert-title');
+const alertDesc = document.getElementById('alert-desc');
+
+if (glucoseInput) {
+  // Update slider values dynamically
+  glucoseInput.addEventListener('input', () => valGlucose.textContent = glucoseInput.value);
+  bmiInput.addEventListener('input', () => valBmi.textContent = bmiInput.value);
+  ageInput.addEventListener('input', () => valAge.textContent = ageInput.value);
+  bpInput.addEventListener('input', () => valBp.textContent = bpInput.value);
+
+  // Run prediction function
+  function runPrediction() {
+    const g = parseFloat(glucoseInput.value);
+    const b = parseFloat(bmiInput.value);
+    const a = parseFloat(ageInput.value);
+    const bp = parseFloat(bpInput.value);
+
+    // Logistic Regression Formula coefficients
+    // z = beta_0 + beta_1*Glucose + beta_2*BMI + beta_3*Age + beta_4*BP
+    const z = -5.2 + (0.027 * g) + (0.065 * b) + (0.015 * a) + (0.003 * bp);
+    const probability = 1 / (1 + Math.exp(-z));
+    const percent = Math.round(probability * 100);
+
+    // Animate Gauge filling
+    // Stroke-dasharray is 125.6 (representing the arc)
+    const arcLength = 125.6;
+    const strokeOffset = arcLength * (1 - probability);
+    
+    gaugeFill.style.transition = 'stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1)';
+    gaugeFill.style.strokeDashoffset = strokeOffset;
+
+    // Counter animation for text percentage
+    let count = 0;
+    const currentPct = parseInt(gaugePct.textContent) || 0;
+    const duration = 1000; // 1 second
+    const startTime = performance.now();
+
+    function animateCount(timestamp) {
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out quad
+      const easeProgress = progress * (2 - progress);
+      const value = Math.round(currentPct + (percent - currentPct) * easeProgress);
+      
+      gaugePct.textContent = `${value}%`;
+
+      if (progress < 1) {
+        requestAnimationFrame(animateCount);
+      } else {
+        gaugePct.textContent = `${percent}%`;
+      }
+    }
+    requestAnimationFrame(animateCount);
+
+    // Update Prediction Alert Message
+    setTimeout(() => {
+      predictionAlert.className = 'prediction-alert'; // reset
+      const icon = predictionAlert.querySelector('.alert-icon i');
+
+      if (probability >= 0.5) {
+        predictionAlert.classList.add('danger');
+        alertTitle.textContent = `High Risk Classified (P = ${probability.toFixed(3)})`;
+        alertDesc.textContent = `Based on model weights, parameters cross the decision boundary. High diabetes likelihood.`;
+        icon.setAttribute('data-lucide', 'alert-triangle');
+      } else {
+        predictionAlert.classList.add('safe');
+        alertTitle.textContent = `Low Risk Classified (P = ${probability.toFixed(3)})`;
+        alertDesc.textContent = `Model outputs normal ranges. Probability lies below decision threshold.`;
+        icon.setAttribute('data-lucide', 'check-circle-2');
+      }
+      lucide.createIcons();
+    }, 300);
+  }
+
+  runSandboxBtn.addEventListener('click', runPrediction);
+}
+
+
+/* ==========================================================================
+   PROJECT DETAILS MODALS
+   ========================================================================== */
+const openModalButtons = document.querySelectorAll('.open-modal-btn');
+const closeModalButtons = document.querySelectorAll('.modal-close');
+const modalBackdrops = document.querySelectorAll('.modal-backdrop');
+
+// Open Modal
+openModalButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const project = btn.getAttribute('data-project');
+    const modal = document.getElementById(`modal-${project}`);
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Disable page scrolling
+    }
+  });
+});
+
+// Close Modal functions
+function closeModal(modal) {
+  modal.classList.remove('active');
+  document.body.style.overflow = ''; // Re-enable page scrolling
+}
+
+closeModalButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const project = btn.getAttribute('data-close');
+    const modal = document.getElementById(`modal-${project}`);
+    if (modal) {
+      closeModal(modal);
+    }
+  });
+});
+
+// Close when clicking outside of modal card
+modalBackdrops.forEach(backdrop => {
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) {
+      closeModal(backdrop);
+    }
+  });
+});
+
