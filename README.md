@@ -7,6 +7,12 @@
 
 <br/>
 
+<a href="https://Rishikumar67.github.io/templete/" target="_blank">
+  <img src="https://img.shields.io/badge/View%20Live%20Portfolio-Interactive%20Web%20App-%231D9E75?style=for-the-badge&logo=googlechrome&logoColor=white" />
+</a>
+
+<br/><br/>
+
 <img src="https://komarev.com/ghpvc/?username=Rishikumar67&label=Profile+Views&color=1D9E75&style=flat-square" />
 &nbsp;
 <img src="https://img.shields.io/github/followers/Rishikumar67?label=Followers&style=flat-square&color=1D9E75" />
