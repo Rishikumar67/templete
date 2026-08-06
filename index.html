@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishi Kumar | Data Science & Machine Learning Portfolio</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Rishi Kumar, an MCA student at IILM University and former Data Science & Machine Learning Intern. Specializing in Python, SQL, ML, and Data Analysis.">
+  <meta name="keywords" content="Rishi Kumar, Portfolio, Data Science, Machine Learning, Python, MCA, Developer, IILM University">
+  <meta name="author" content="Rishi Kumar">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Background Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-container">
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">
+        <a href="#hero">
+          <span class="logo-accent">&lt;</span>Rishi<span class="logo-accent">.Kumar /&gt;</span>
+        </a>
+      </div>
+      
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#stack" class="nav-link">Stack</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#timeline" class="nav-link">Experience & Education</a></li>
+        <li><a href="#certifications" class="nav-link">Certifications</a></li>
+        <li><a href="#contact" class="nav-btn-link"><button class="btn btn-primary btn-sm">Connect</button></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge animate-fade-in">
+        <span class="badge-dot"></span> Open to entry-level Data Science & ML roles!
+      </div>
+      <h1 class="hero-title animate-slide-up">
+        Turning Data Into <br>
+        <span class="text-gradient">Decisions</span>, One Model At A Time.
+      </h1>
+      
+      <!-- Typewriter Container -->
+      <div class="typewriter-container animate-fade-in-delayed">
+        <span class="typewriter-prefix">I build </span>
+        <span id="typewriter" class="typewriter-text"></span>
+        <span class="typewriter-cursor">|</span>
+      </div>
+
+      <p class="hero-description animate-slide-up-delayed">
+        MCA student at IILM University with hands-on experience in predictive modeling, feature engineering, and statistical data analysis. 
+      </p>
+
+      <div class="hero-actions animate-fade-in-delayed">
+        <a href="#projects" class="btn btn-primary"><i data-lucide="folder-git-2"></i> View Projects</a>
+        <a href="#contact" class="btn btn-outline"><i data-lucide="mail"></i> Contact Me</a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <a href="#about" class="scroll-down" aria-label="Scroll to About Section">
+      <span class="scroll-mouse">
+        <span class="scroll-wheel"></span>
+      </span>
+    </a>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section section-padding" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">About Me</span>
+        <h2 class="section-title">Who is Rishi Kumar?</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text-content">
+          <p class="about-paragraph">
+            I am an ambitious MCA student specializing in computer applications and artificial intelligence. With a solid background in mathematics and computer applications from my BCA degree, I thrive on exploring patterns in data and constructing automated pipelines.
+          </p>
+          <p class="about-paragraph">
+            During my internship at <strong>Ardent Computech</strong>, I solved real-world classification problems, which solidified my passion for machine learning. I'm always looking for ways to streamline data transformations, improve accuracy via tuning, and write clean, reproducible code.
+          </p>
+          
+          <div class="about-stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon-wrapper"><i data-lucide="graduation-cap"></i></div>
+              <h3>MCA Student</h3>
+              <p>IILM University</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-wrapper"><i data-lucide="cpu"></i></div>
+              <h3>ML Practitioner</h3>
+              <p>Classification & DL</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-wrapper"><i data-lucide="bar-chart-3"></i></div>
+              <h3>Data Analyst</h3>
+              <p>Python & SQL Stack</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal Window Mockup -->
+        <div class="terminal-wrapper">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">rishi_kumar.py</div>
+            <div class="terminal-action-icon"><i data-lucide="terminal"></i></div>
+          </div>
+          <div class="terminal-body">
+            <pre><code><span class="code-keyword">class</span> <span class="code-class">RishiKumar</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-self">self</span>):
+        <span class="code-self">self</span>.name = <span class="code-string">"Rishi Kumar"</span>
+        <span class="code-self">self</span>.education = <span class="code-string">"MCA (2025 - 2027)"</span>
+        <span class="code-self">self</span>.interests = [<span class="code-string">"Predictive Analytics"</span>, <span class="code-string">"Deep Learning"</span>]
+        <span class="code-self">self</span>.core_stack = [<span class="code-string">"Python"</span>, <span class="code-string">"SQL"</span>, <span class="code-string">"ML"</span>, <span class="code-string">"DL"</span>]
+    
+    <span class="code-keyword">def</span> <span class="code-function">get_profile</span>(<span class="code-self">self</span>):
+        <span class="code-keyword">return</span> {
+            <span class="code-string">"experience"</span>: <span class="code-string">"Data Science Intern at Ardent"</span>,
+            <span class="code-string">"mindset"</span>: <span class="code-string">"Quick learner, collaborative"</span>,
+            <span class="code-string">"goal"</span>: <span class="code-string">"Build efficient, data-driven solutions"</span>
+        }
+
+rishi = RishiKumar()
+print(rishi.get_profile())
+
+<span class="code-output"># Output:
+# {
+#   'experience': 'Data Science Intern at Ardent',
+#   'mindset': 'Quick learner, collaborative',
+#   'goal': 'Build efficient, data-driven solutions'
+# }</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="stack-section section-padding" id="stack">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Skills</span>
+        <h2 class="section-title">My Technical Toolbox</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="languages">Languages</button>
+        <button class="filter-btn" data-filter="data">Data & Visualization</button>
+        <button class="filter-btn" data-filter="ml">ML & DL</button>
+        <button class="filter-btn" data-filter="tools">Tools</button>
+      </div>
+
+      <!-- Skill Grid -->
+      <div class="skill-grid" id="skill-grid">
+        <!-- Languages -->
+        <div class="skill-card" data-category="languages">
+          <div class="skill-icon python-color"><i data-lucide="code-2"></i></div>
+          <h3 class="skill-name">Python</h3>
+          <p class="skill-desc">Primary language for data pipelines, model building, and scripting.</p>
+        </div>
+        <div class="skill-card" data-category="languages">
+          <div class="skill-icon sql-color"><i data-lucide="database"></i></div>
+          <h3 class="skill-name">SQL</h3>
+          <p class="skill-desc">Relational database querying, aggregations, and data retrieval.</p>
+        </div>
+        <div class="skill-card" data-category="languages">
+          <div class="skill-icon c-color"><i data-lucide="braces"></i></div>
+          <h3 class="skill-name">C / C++</h3>
+          <p class="skill-desc">Solid baseline in system-level programming and object-oriented paradigms.</p>
+        </div>
+
+        <!-- Data Analysis -->
+        <div class="skill-card" data-category="data">
+          <div class="skill-icon numpy-color"><i data-lucide="grid"></i></div>
+          <h3 class="skill-name">NumPy</h3>
+          <p class="skill-desc">Multi-dimensional array computation and matrix operations.</p>
+        </div>
+        <div class="skill-card" data-category="data">
+          <div class="skill-icon pandas-color"><i data-lucide="table"></i></div>
+          <h3 class="skill-name">Pandas</h3>
+          <p class="skill-desc">Data wrangling, cleaning, operations, and analysis on tabular data.</p>
+        </div>
+        <div class="skill-card" data-category="data">
+          <div class="skill-icon viz-color"><i data-lucide="bar-chart-2"></i></div>
+          <h3 class="skill-name">Matplotlib & Seaborn</h3>
+          <p class="skill-desc">Statistical data visualisations, plots, distributions, and correlation maps.</p>
+        </div>
+
+        <!-- ML & DL -->
+        <div class="skill-card" data-category="ml">
+          <div class="skill-icon sklearn-color"><i data-lucide="binary"></i></div>
+          <h3 class="skill-name">Scikit-Learn</h3>
+          <p class="skill-desc">Predictive classification, regression models, and tuning pipelines.</p>
+        </div>
+        <div class="skill-card" data-category="ml">
+          <div class="skill-icon tf-color"><i data-lucide="git-branch"></i></div>
+          <h3 class="skill-name">TensorFlow</h3>
+          <p class="skill-desc">End-to-end framework for deep neural network architectures.</p>
+        </div>
+        <div class="skill-card" data-category="ml">
+          <div class="skill-icon keras-color"><i data-lucide="activity"></i></div>
+          <h3 class="skill-name">Keras</h3>
+          <p class="skill-desc">High-level neural network API for rapid deep learning prototyping.</p>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-card" data-category="tools">
+          <div class="skill-icon git-color"><i data-lucide="git-pull-request"></i></div>
+          <h3 class="skill-name">Git & GitHub</h3>
+          <p class="skill-desc">Version control, repository management, and collaboration platforms.</p>
+        </div>
+        <div class="skill-card" data-category="tools">
+          <div class="skill-icon tool-color"><i data-lucide="book-open"></i></div>
+          <h3 class="skill-name">Jupyter Notebooks</h3>
+          <p class="skill-desc">Interactive development environment for exploratory analysis and ML training.</p>
+        </div>
+        <div class="skill-card" data-category="tools">
+          <div class="skill-icon tool-color"><i data-lucide="terminal"></i></div>
+          <h3 class="skill-name">VS Code / Google Colab</h3>
+          <p class="skill-desc">Cloud and local environments for coding and model execution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section section-padding" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon"><i data-lucide="shield-alert"></i></div>
+            <div class="project-meta">
+              <span class="project-category">Machine Learning</span>
+              <h3 class="project-title">Diabetes Prediction Model</h3>
+            </div>
+          </div>
+          <p class="project-description">
+            A classification system designed to predict the likelihood of diabetes in patients. Implements logistic regression, decision trees, and random forests, focusing on dataset balancing and preprocessing.
+          </p>
+          <div class="project-features">
+            <h4>Key Implementations:</h4>
+            <ul>
+              <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Implemented feature scaling and outlier handling</li>
+              <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Used Decision Trees and Random Forests</li>
+              <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Tuned hyperparameters to improve prediction accuracy</li>
+              <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Matplotlib correlation matrices & ROC curves</li>
+            </ul>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Scikit-Learn</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Matplotlib</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/Rishikumar67/diabetes-prediction-model" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              <i data-lucide="github"></i> Source Code
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon"><i data-lucide="brain-circuit"></i></div>
+            <div class="project-meta">
+              <span class="project-category">Deep Learning</span>
+              <h3 class="project-title">Smart Disease Prediction System</h3>
+            </div>
+          </div>
+          <p class="project-description">
+            An end-to-end classification system that leverages deep learning to diagnose disease conditions from medical indicators, featuring automated missing value computation.
+          </p>
+          <div class="project-features">
+            <h4>Key Implementations:</h4>
+            <ul>
+              <li><i data-lucide="check-circle-2" class="bullet-icon"></i> End-to-end pipeline: raw data to prediction</li>
+              <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Feature engineering & handling sparse features</li>
+              <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Deep neural networks with TensorFlow & Keras</li>
+              <li><i data-lucide="check-circle-2" class="bullet-icon"></i> Multi-model validation comparisons</li>
+            </ul>
+          </div>
+          <div class="project-tags">
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Keras</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Pandas</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/Rishikumar67/smart-disease-predictor" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              <i data-lucide="github"></i> Source Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section (Experience & Education) -->
+  <section class="timeline-section section-padding" id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">History</span>
+        <h2 class="section-title">Experience & Education</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Experience Block -->
+        <div class="timeline-block">
+          <h3 class="timeline-header-title"><i data-lucide="briefcase"></i> Professional Internship</h3>
+          <div class="timeline-items">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Jun 2023 – Jul 2023</div>
+              <div class="timeline-content">
+                <h4 class="timeline-item-title">Data Science & Machine Learning Intern</h4>
+                <p class="timeline-item-subtitle">Ardent Computech Pvt. Ltd.</p>
+                <ul class="timeline-bullets">
+                  <li>Developed a diabetes prediction model utilizing Python algorithms from scratch.</li>
+                  <li>Cleaned and parsed complex real-world datasets, establishing standard pipelines.</li>
+                  <li>Applied classification algorithms and boosted test accuracy through grid hyperparameter search.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Block -->
+        <div class="timeline-block">
+          <h3 class="timeline-header-title"><i data-lucide="graduation-cap"></i> Academic Timeline</h3>
+          <div class="timeline-items">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">2025 – 2027</div>
+              <div class="timeline-content">
+                <h4 class="timeline-item-title">Master of Computer Applications (MCA)</h4>
+                <p class="timeline-item-subtitle">IILM University, Greater Noida</p>
+                <p class="timeline-item-description">Specializing in programming and data-driven architectures.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">2022 – 2025</div>
+              <div class="timeline-content">
+                <h4 class="timeline-item-title">Bachelor of Computer Applications (BCA)</h4>
+                <p class="timeline-item-subtitle">Sarala Birla University, Ranchi</p>
+                <p class="timeline-item-description">Graduated with foundations in computing, databases, and structured programming.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">2022</div>
+              <div class="timeline-content">
+                <h4 class="timeline-item-title">12th Standard (High School)</h4>
+                <p class="timeline-item-subtitle">Kendriya Vidyalaya, Ramgarh</p>
+                <p class="timeline-item-description">Completed secondary education with a focus on science and analytics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="certifications-section section-padding" id="certifications">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Credentials</span>
+        <h2 class="section-title">Certifications</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="certifications-grid">
+        <div class="cert-card">
+          <div class="cert-icon-wrapper"><i data-lucide="award"></i></div>
+          <div class="cert-details">
+            <span class="cert-issuer">Edyoda</span>
+            <h3 class="cert-title">Artificial Intelligence</h3>
+            <span class="cert-status"><i data-lucide="check"></i> Verified</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon-wrapper"><i data-lucide="award"></i></div>
+          <div class="cert-details">
+            <span class="cert-issuer">Google Analytics Academy</span>
+            <h3 class="cert-title">Google Analytics for Beginners</h3>
+            <span class="cert-status"><i data-lucide="check"></i> Verified</span>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon-wrapper"><i data-lucide="award"></i></div>
+          <div class="cert-details">
+            <span class="cert-issuer">Great Learning</span>
+            <h3 class="cert-title">Python for Data Science</h3>
+            <span class="cert-status"><i data-lucide="check"></i> Verified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Connect Section -->
+  <section class="contact-section section-padding" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Get In Touch</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Links -->
+        <div class="contact-info">
+          <h3>Let's build something data-driven!</h3>
+          <p class="contact-pitch">
+            I am currently searching for entry-level opportunities as a Data Scientist, ML Engineer, or Python Developer. If you have a question, role, or project to discuss, feel free to reach out.
+          </p>
+
+          <div class="info-list">
+            <a href="mailto:your.email@gmail.com" class="info-item">
+              <div class="info-icon"><i data-lucide="mail"></i></div>
+              <div class="info-content">
+                <span class="info-label">Email</span>
+                <span class="info-value">your.email@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/rishikumar777" target="_blank" rel="noopener noreferrer" class="info-item">
+              <div class="info-icon"><i data-lucide="linkedin"></i></div>
+              <div class="info-content">
+                <span class="info-label">LinkedIn</span>
+                <span class="info-value">linkedin.com/in/rishikumar777</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/Rishikumar67" target="_blank" rel="noopener noreferrer" class="info-item">
+              <div class="info-icon"><i data-lucide="github"></i></div>
+              <div class="info-content">
+                <span class="info-label">GitHub</span>
+                <span class="info-value">github.com/Rishikumar67</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <div class="input-wrapper">
+                <i data-lucide="user"></i>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <div class="input-wrapper">
+                <i data-lucide="mail"></i>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <div class="input-wrapper">
+                <i data-lucide="info"></i>
+                <input type="text" id="subject" name="subject" placeholder="Opportunities / Feedback" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Hi Rishi, I'd like to talk about..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+              <span>Send Message</span> <i data-lucide="send"></i>
+            </button>
+            <div id="form-feedback" class="form-feedback"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p class="footer-copy">&copy; 2026 Rishi Kumar. All rights reserved.</p>
+      <p class="footer-motto">"Turning data into decisions, one model at a time."</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Code -->
+  <script src="script.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
