@@ -36,8 +36,8 @@ class Particle {
     this.vx = (Math.random() - 0.5) * 0.6;
     this.vy = (Math.random() - 0.5) * 0.6;
     this.radius = Math.random() * 2 + 1.5;
-    // Harmonious shades of green and cyan
-    this.color = Math.random() > 0.5 ? '#1d9e75' : '#06b6d4';
+    // Harmonious shades of Indigo and Fuchsia
+    this.color = Math.random() > 0.5 ? '#6366f1' : '#d946ef';
   }
 
   update() {
@@ -100,7 +100,7 @@ function animate() {
 
       if (distance < connectionDistance) {
         const alpha = (1 - distance / connectionDistance) * 0.15;
-        ctx.strokeStyle = `rgba(29, 158, 117, ${alpha})`;
+        ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(particles[i].x, particles[i].y);
